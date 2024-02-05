@@ -1,0 +1,48 @@
+{
+  "name": "panel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --dest=../../../gui/panel",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "0.21.4",
+    "bulma": "0.9.4",
+    "core-js": "3.14.0",
+    "vue": "3.1.1",
+    "vue-axios": "3.2.4",
+    "vue-router": "4.0.9"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "5.0.8",
+    "@vue/cli-plugin-eslint": "5.0.8",
+    "@vue/cli-service": "5.0.8",
+    "@vue/compiler-sfc": "3.1.1",
+    "babel-eslint": "10.1.0",
+    "eslint": "7.5.0",
+    "eslint-plugin-vue": "7.5.0",
+    "sass": "1.70.0",
+    "sass-loader": "10.2.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
