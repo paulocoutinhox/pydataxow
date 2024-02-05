@@ -1,4 +1,7 @@
+import json
+
 import webview
+from modules import config as cfg
 
 
 class WPlayer:
@@ -14,24 +17,31 @@ class WPlayer:
             cls._instance = cls()
         return cls._instance
 
-    def create(cls):
-        if WPlayer.window is None:
-            WPlayer.window = webview.create_window(
+    def create(self):
+        if self.window is None:
+            self.window = webview.create_window(
                 "Player",
-                html="<button onclick=\"pywebview.api.sayHelloTo('window2')\">Say hello</button>",
+                url=cfg.player_url,
                 hidden=True,
                 frameless=True,
             )
 
-            WPlayer.window.events.closed += cls.on_closed
+            self.window.events.closed += self.on_closed
 
-        WPlayer.window.show()
+        self.window.show()
 
-    def destroy(cls):
-        if WPlayer.window:
-            WPlayer.window.destroy()
+    def destroy(self):
+        if self.window:
+            self.window.destroy()
 
-        WPlayer.window = None
+        self.window = None
 
-    def on_closed(cls):
-        WPlayer.window = None
+    def on_closed(self):
+        self.window = None
+
+    def update_data(self, params):
+        if self.window:
+            params_json = json.dumps(json.dumps(params))
+            js_code = f"updateData(JSON.parse({params_json}));"
+
+            self.window.evaluate_js(js_code)

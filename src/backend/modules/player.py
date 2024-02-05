@@ -8,3 +8,7 @@ def hide():
 
 def show():
     WPlayer.instance().create()
+
+
+def update_data(params: dict):
+    WPlayer.instance().update_data(params)

@@ -30,6 +30,29 @@
                             Player - Hide
                         </button>
                     </div>
+                    <div class="column">
+                        <button class="button is-info" v-on:click="playerUpdateData({type: 'black'})">
+                            Player - Update - Clear
+                        </button>
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        <button class="button is-primary" v-on:click="playerUpdateData({type: 'image', src: 'https://picsum.photos/1024/768/?blur=2'})">
+                            Player - Update - Image
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-info" v-on:click="playerUpdateData({type: 'video', src: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4'})">
+                            Player - Update - Video
+                        </button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-info" v-on:click="playerUpdateData({type: 'text', text: 'Deus enviou, seu Filho amado, para perdoar, para me salvar'})">
+                            Player - Update - Text
+                        </button>
+                    </div>
                 </div>
 
                 <div class="columns">
@@ -151,6 +174,14 @@ export default {
         playerHide() {
             pywebview.api
                 .call("modules.player.hide")
+                .catch((e) => {
+                    this.message = "Error: " + e;
+                });
+        },
+
+        playerUpdateData(data) {
+            pywebview.api
+                .call("modules.player.update_data", data)
                 .catch((e) => {
                     this.message = "Error: " + e;
                 });
