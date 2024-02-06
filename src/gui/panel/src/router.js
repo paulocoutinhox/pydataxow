@@ -26,8 +26,10 @@ const routes = [
     },
 ];
 
+const base = process.env.NODE_ENV === 'production' ? '/panel/' : '/';
+
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(base),
     routes,
 });
 

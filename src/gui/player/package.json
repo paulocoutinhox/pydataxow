@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack serve --mode=development",
+    "serve": "webpack serve --mode=development",
     "build": "webpack build --mode=production",
     "test": "npm run build"
   },
