@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/backend/main.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYWEBVIEW_DEBUG": "0"
+      },
+      "justMyCode": false
+    }
+  ]
+}
