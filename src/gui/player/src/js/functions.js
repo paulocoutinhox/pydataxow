@@ -1,3 +1,25 @@
+function videoPlayerStart() {
+    var videoElement = $('.video-block video').get(0);
+
+    if (videoElement) {
+        videoElement.play().catch(function (error) {
+            //console.error("Error attempting to play video:", error);
+        });
+    }
+}
+
+function videoPlayerStop() {
+    var videoElement = $('.video-block video').get(0);
+
+    if (videoElement) {
+        if (!videoElement.paused) {
+            videoElement.pause();
+        }
+
+        videoElement.currentTime = 0;
+    }
+}
+
 export function updateData({ type, src, text, textColor, borderColor, backgroundColor }) {
     switch (type) {
         case 'black':
@@ -5,11 +27,10 @@ export function updateData({ type, src, text, textColor, borderColor, background
             $('.black-block').show();
             break;
         case 'image':
+            videoPlayerStop();
+
             $('.black-block').hide();
             $('.video-block').hide();
-
-            $('.video-block video').get(0).pause();
-            $('.video-block video').get(0).currentTime = 0;
 
             $('.text-block').css('background-color', 'transparent');
 
@@ -22,7 +43,9 @@ export function updateData({ type, src, text, textColor, borderColor, background
             $('.text-block').css('background-color', 'transparent');
 
             $('.video-block video').attr('src', src).parent().show();
-            $('.video-block video').get(0).play();
+
+            videoPlayerStart();
+
             break;
         case 'text':
             const textBlock = $('.text-block').text(text);
@@ -41,8 +64,7 @@ export function updateData({ type, src, text, textColor, borderColor, background
                 $('.video-block').hide();
                 $('.image-block').hide();
 
-                $('.video-block video').get(0).pause();
-                $('.video-block video').get(0).currentTime = 0;
+                videoPlayerStop();
             } else {
                 textBlock.css('background-color', 'transparent');
             }

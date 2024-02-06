@@ -16,6 +16,7 @@ module.exports = (env, argv) => {
             filename: 'main.js',
             path: path.resolve(__dirname, '../../../gui/player'),
             publicPath: isProduction ? '/player/' : '/',
+            clean: true
         },
         devServer: {
             static: path.resolve(__dirname),
