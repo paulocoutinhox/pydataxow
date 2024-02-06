@@ -5,7 +5,7 @@ import sys
 is_debug = True if os.environ.get("PYWEBVIEW_DEBUG") == "1" else False
 
 # root path
-if getattr(sys, "frozen", False):
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
     # frozen executable path
     root_dir = os.path.join(sys._MEIPASS)
 else:
