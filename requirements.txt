@@ -3,3 +3,5 @@ black
 pywebview
 requests
 pygemstones
+flask
+flask-cors

@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 
-import AboutPage from '@/components/AboutPage';
-import HomePage from '@/components/HomePage';
-import NotFoundPage from '@/components/NotFoundPage';
+import HomePage from '@/pages/HomePage'
+import AboutPage from '@/pages/AboutPage'
+import NotFoundPage from '@/pages/NotFoundPage'
 
 const routes = [
     {
@@ -21,7 +21,7 @@ const routes = [
     },
 ];
 
-const base = process.env.NODE_ENV === 'production' ? '/panel/' : '/';
+const base = process.env.NODE_ENV === 'production' ? '/rcontrol/' : '/';
 
 const router = createRouter({
     history: createWebHistory(base),

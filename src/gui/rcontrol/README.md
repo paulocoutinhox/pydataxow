@@ -1,4 +1,4 @@
-# Panel App
+# Remote Control App
 
 ## Project setup
 ```

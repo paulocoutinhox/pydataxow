@@ -1,4 +1,19 @@
 import webview
+from modules import config as cfg
+from modules import net
+
+
+def get_settings():
+    network_address = net.get_network_ip()
+
+    data = {
+        "network": {
+            "address": net.get_network_ip(),
+            "rcontrol_url": cfg.rcontrol_url.replace("[ip]", network_address),
+        }
+    }
+
+    return data
 
 
 def select_folder():
