@@ -49,6 +49,8 @@ a = Analysis(
         "modules.net",
         "modules.player",
         "modules.system",
+        "clr_loader",
+        "pythonnet",
     ],
     hookspath=[],
     runtime_hooks=[],

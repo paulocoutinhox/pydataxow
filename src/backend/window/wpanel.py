@@ -14,7 +14,7 @@ class WPanel:
             url=cfg.panel_url,
             js_api=self.api,
             min_size=(800, 600),
-            maximized=True
+            maximized=True,
         )
 
     @classmethod
