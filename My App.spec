@@ -49,7 +49,7 @@ a = Analysis(
         "modules.net",
         "modules.player",
         "modules.system",
-        "clr_loader",
+        "clr",
         "pythonnet",
     ],
     hookspath=[],
